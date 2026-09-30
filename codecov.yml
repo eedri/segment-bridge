@@ -1,11 +1,5 @@
-# This repo's product is shell scripts (scripts/*.sh). Go paths below are
-# test infrastructure — fixtures, helpers, and mocks that exercise those
-# scripts. Makefile and README.md are build and documentation glue, not
-# executable product code. Excluding these keeps the metric focused on
-# shell scripts rather than harness, docs, or build wiring.
 codecov:
   require_ci_to_pass: true
-
 coverage:
   status:
     project:
@@ -15,29 +9,26 @@ coverage:
         informational: true
     patch:
       default:
-        target: 80%
+        target: 85%
         threshold: 2%
-        informational: true
-
 ignore:
-  - "Makefile"
-  - "README.md"
-  - "testfixture/"
-  - "containerfixture/"
-  - "kwok/"
-  - "webfixture/"
-  - "scripts/runner.go"
-  - "scripts/prepare-oc-client-for-build.sh"
-  - "scripts/jq/"
-  - "tekton-e2e/"
-  - ".agents/**"
-  - ".claude/**"
-  - ".cursor/**"
-  - "skills/**"
-  - "docs/**"
-  - "*.md"
-  - "*.toml"
-
+- Makefile
+- README.md
+- testfixture/
+- containerfixture/
+- kwok/
+- webfixture/
+- scripts/runner.go
+- scripts/prepare-oc-client-for-build.sh
+- scripts/jq/
+- tekton-e2e/
+- .agents/**
+- .claude/**
+- .cursor/**
+- skills/**
+- docs/**
+- '*.md'
+- '*.toml'
 flags:
   unit-tests:
     carryforward: true
@@ -45,7 +36,6 @@ flags:
     carryforward: true
   shell-scripts:
     carryforward: true
-
 comment:
-  layout: "condensed_header, condensed_files"
+  layout: condensed_header, condensed_files
   require_changes: true
